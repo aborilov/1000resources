@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: applicationset-configmaps
+spec:
+  generators:
+    - list:
+        elements:
+          - name: configmap-0
+          - name: configmap-1
+          - name: configmap-2
+  template:
+    metadata:
+      name: "{{name}}"
+    spec:
+      project: default
+      source:
+        repoURL: 'https://github.com/aborilov/1000resources'
+        targetRevision: HEAD
+        path: .
+      destination:
+        server: 'http://cluster-test:8001'
+        namespace: default
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
