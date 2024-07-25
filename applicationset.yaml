@@ -11,7 +11,7 @@ spec:
           - name: configmap-2
   template:
     metadata:
-      name: "{{name}}"
+      name: "{{.name}}"
     spec:
       project: default
       source:
