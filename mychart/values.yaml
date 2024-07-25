@@ -1,0 +1,2 @@
+configmaps:
+  count: 1000
