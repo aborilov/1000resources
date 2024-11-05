@@ -5,6 +5,6 @@ kind: ConfigMap
 metadata:
   name: configmap-{{ $i }}
 data:
-  key: values-{{ $i }}
+  key: value-{{ $i }}
 ---
 {{- end }}
